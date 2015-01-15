@@ -71,8 +71,13 @@ typedef enum
         {
             while (YES)
             {
+                NSLog(@"test");
+                if (self.optQueue.isSuspended)
+                {
+                    return;
+                }
                 _shapeC = nil;
-                NSLog(@"&&&&%lu",self.optQueue.operationCount);
+                NSLog(@"----start game----");
                 HBBase *base = [self randomProduceShape];
                 int row = 0;
                 int col = arc4random_uniform(11);
@@ -88,7 +93,7 @@ typedef enum
                 }
                 while (YES)
                 {
-                    [NSThread sleepForTimeInterval:0.7];
+                    [NSThread sleepForTimeInterval:0.3];
                     if ([_shapeC checkMoveDown:self.mainMap]) {
                         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                             [_shapeC moveDown];
@@ -146,47 +151,16 @@ typedef enum
 }
 - (IBAction)startGame
 {
-//    while (1)
-//    {
-        NSBlockOperation *opt = [NSBlockOperation blockOperationWithBlock:^{
-            
-            HBBase *base = [self randomProduceShape];
-            
-            int row = 0;
-            int col = arc4random_uniform(11);
-            
-            _shapeC = [[HBShapeControl alloc] initWith:base currentRow:row currentCol:col];
-            
-            for (int i=0; i<_shapeC.layerArray.count; i++)
-            {
-                HBLayer *ly = _shapeC.layerArray[i];
-                [self.mainView.layer addSublayer:ly];
-            }
-            NSLog(@"**");
-            while (YES)
-            {
-                [NSThread sleepForTimeInterval:0.5];
-                if ([_shapeC checkMoveDown:self.mainMap]) {
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        [_shapeC moveDown];
-                        [self.mainView setNeedsDisplay];
-                        [self.view setNeedsDisplay];
-                    });
-                }else{
-                    [_shapeC StopInMap:self.mainMap];
-                    return;
-                }
-            }
-
-
-        }];
-        [self.optQueue addOperation:opt];
-//        self.optQueue
-//        [self.optQueue waitUntilAllOperationsAreFinished];
-//    }
+    NSLog(@"start--btn---%lu",self.optQueue.operationCount);
+    self.optQueue.suspended = YES;
+    [self setBegin];
 }
 
-- (IBAction)suspendGame {
+- (IBAction)suspendGame
+{
+    NSLog(@"暂停---%d",self.optQueue.isSuspended);
+    
+    self.optQueue.suspended = YES;
     
 }
 
@@ -215,10 +189,6 @@ typedef enum
         temp = [[SevenShape alloc] init];
     }
     return temp;
-}
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    
 }
 
 @end
