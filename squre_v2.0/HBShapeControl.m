@@ -11,6 +11,7 @@
 #import "OneShape.h"
 #import "HBLayer.h"
 #import "HBMap.h"
+#import "UIColor+Random.h"
 #define blockNum 4
 
 @interface HBShapeControl()
@@ -41,7 +42,7 @@
         
         self.layerArray = [[NSMutableArray alloc] initWithCapacity:blockNum];
         
-        UIColor *color = [UIColor redColor];
+        UIColor *color = [UIColor randomColor];
         
         HBLayer *one = [[HBLayer alloc] initWithColor:color];
         one.frame = CGRectMake(shape.inMap1.x*HBWidth,shape.inMap1.y*HBHeight,HBWidth,HBHeight);

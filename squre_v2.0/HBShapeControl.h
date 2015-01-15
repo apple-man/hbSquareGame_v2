@@ -20,24 +20,24 @@
 
 @property(nonatomic,strong)NSMutableArray *layerArray;
 
-//@property(nonatomic,strong)HBMap *map;
-
-
 - (instancetype)initWith:(HBBase *)shape currentRow:(int)row currentCol:(int)col;
-
-- (void)locationInMap:(HBBase *)shape currentRow:(int)row currentCol:(int)col;
 
 - (void)moveRight;
 
 - (void)moveLeft;
 
 - (void)moveDown;
+
 - (BOOL)checkMoveDown:(HBMap *)map;
+
 - (void)StopInMap:(HBMap *)map;
 
 - (void)switchShape:(HBMap *)map;
+
 - (BOOL)checkRotation:(HBMap *)map;
+
 - (BOOL)checkRight:(HBMap *)map;
+
 - (BOOL)checkLeft:(HBMap *)map;
 
 @end

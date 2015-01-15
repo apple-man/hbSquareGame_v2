@@ -16,6 +16,7 @@
 		A866F9541A658649007FBA06 /* squre_v2_0Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = A866F9531A658649007FBA06 /* squre_v2_0Tests.m */; };
 		A866F95E1A65869D007FBA06 /* 实现原理.md in Sources */ = {isa = PBXBuildFile; fileRef = A866F95D1A65869D007FBA06 /* 实现原理.md */; };
 		A866F9621A658FEA007FBA06 /* HBBase.m in Sources */ = {isa = PBXBuildFile; fileRef = A866F9611A658FEA007FBA06 /* HBBase.m */; };
+		A86B834C1A67FF51008A911B /* UIColor+Random.m in Sources */ = {isa = PBXBuildFile; fileRef = A86B834B1A67FF51008A911B /* UIColor+Random.m */; };
 		A8A1E2131A678C1E00D84F71 /* OneShape.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A1E2121A678C1E00D84F71 /* OneShape.m */; };
 		A8A1E2171A67983C00D84F71 /* HBLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A1E2161A67983C00D84F71 /* HBLayer.m */; };
 		A8A1E21A1A6799B700D84F71 /* HBMap.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A1E2191A6799B700D84F71 /* HBMap.m */; };
@@ -55,6 +56,8 @@
 		A866F95D1A65869D007FBA06 /* 实现原理.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "实现原理.md"; sourceTree = "<group>"; };
 		A866F9601A658FEA007FBA06 /* HBBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBBase.h; sourceTree = "<group>"; };
 		A866F9611A658FEA007FBA06 /* HBBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBBase.m; sourceTree = "<group>"; };
+		A86B834A1A67FF51008A911B /* UIColor+Random.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Random.h"; sourceTree = "<group>"; };
+		A86B834B1A67FF51008A911B /* UIColor+Random.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Random.m"; sourceTree = "<group>"; };
 		A8A1E2111A678C1E00D84F71 /* OneShape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OneShape.h; sourceTree = "<group>"; };
 		A8A1E2121A678C1E00D84F71 /* OneShape.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OneShape.m; sourceTree = "<group>"; };
 		A8A1E2151A67983C00D84F71 /* HBLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBLayer.h; sourceTree = "<group>"; };
@@ -183,6 +186,8 @@
 		A8A1E2141A6794A200D84F71 /* squareControl */ = {
 			isa = PBXGroup;
 			children = (
+				A86B834A1A67FF51008A911B /* UIColor+Random.h */,
+				A86B834B1A67FF51008A911B /* UIColor+Random.m */,
 				A8A1E2151A67983C00D84F71 /* HBLayer.h */,
 				A8A1E2161A67983C00D84F71 /* HBLayer.m */,
 				A8A1E2181A6799B700D84F71 /* HBMap.h */,
@@ -297,6 +302,7 @@
 				A866F95E1A65869D007FBA06 /* 实现原理.md in Sources */,
 				A8A1E2201A67E90500D84F71 /* TwoShape.m in Sources */,
 				A8A1E21A1A6799B700D84F71 /* HBMap.m in Sources */,
+				A86B834C1A67FF51008A911B /* UIColor+Random.m in Sources */,
 				A8A1E2231A67E91000D84F71 /* ThreeShape.m in Sources */,
 				A8A1E2131A678C1E00D84F71 /* OneShape.m in Sources */,
 				A866F93D1A658649007FBA06 /* AppDelegate.m in Sources */,
