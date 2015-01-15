@@ -25,6 +25,9 @@
                                         <state key="normal" title="向左">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="moveLeft" destination="m2H-SP-kr0" eventType="touchUpInside" id="x1v-8e-zqE"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WRt-W9-4yH">
                                         <rect key="frame" x="175" y="17" width="30" height="30"/>
@@ -32,6 +35,9 @@
                                         <state key="normal" title="向右">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="moveRight" destination="m2H-SP-kr0" eventType="touchUpInside" id="Qhj-i9-IgP"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ygy-Ct-k0S">
                                         <rect key="frame" x="260" y="17" width="30" height="30"/>

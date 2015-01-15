@@ -59,7 +59,7 @@
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         while (YES)
         {
-            [NSThread sleepForTimeInterval:0.2];
+            [NSThread sleepForTimeInterval:0.7];
             if ([_shapeC checkMoveDown:self.mainMap]) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [_shapeC moveDown];
@@ -80,7 +80,21 @@
         [_shapeC switchShape:self.mainMap];
     }
 }
+- (IBAction)moveLeft
+{
+    if ([_shapeC checkLeft:self.mainMap])
+    {
+        [_shapeC moveLeft];
+    }
+}
 
+- (IBAction)moveRight
+{
+    if ([_shapeC checkRight:self.mainMap])
+    {
+        [_shapeC moveRight];
+    }
+}
 
 /**
  *随机形状

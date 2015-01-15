@@ -37,6 +37,7 @@
 
 - (void)switchShape:(HBMap *)map;
 - (BOOL)checkRotation:(HBMap *)map;
+- (BOOL)checkRight:(HBMap *)map;
+- (BOOL)checkLeft:(HBMap *)map;
 
-- (BOOL)checkmove;
 @end

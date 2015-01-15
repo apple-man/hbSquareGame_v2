@@ -77,18 +77,6 @@
     shape.centerInMap = centerP;
 }
 
-
-- (void)moveRight
-{
-    //检查条件
-}
-
-- (void)moveLeft
-{
-    //检查条件
-
-}
-
 - (void)updateFrame
 {
     HBLayer *ly1 = self.layerArray[0];
@@ -104,18 +92,7 @@
 /**向下移动 begin**/
 - (void)moveDown
 {
-    //检查条件
-    position map1 = {self.shape.inMap1.x,self.shape.inMap1.y+1};
-    self.shape.inMap1 = map1;
-    position map2 = {self.shape.inMap2.x,self.shape.inMap2.y+1};
-    self.shape.inMap2 = map2;
-    position map3 = {self.shape.inMap3.x,self.shape.inMap3.y+1};
-    self.shape.inMap3 = map3;
-    position map4 = {self.shape.inMap4.x,self.shape.inMap4.y+1};
-    self.shape.inMap4 = map4;
-    position centerP = {self.shape.centerInMap.x,self.shape.centerInMap.y+1};
-    self.shape.centerInMap = centerP;
-    [self updateFrame];
+    [self moveX:0 Y:1];
 }
 
 - (BOOL)checkMoveDown:(HBMap *)map
@@ -161,8 +138,9 @@
     map.rowArray[row][col] = @1;
     
 }
-/**向下移动 stop**/
+/**向下移动 end**/
 
+/**旋转 begin**/
 /**要重新计算inMap的坐标 根据原来的坐标值计算出来**/
 - (void)switchShape:(HBMap *)map
 {
@@ -228,11 +206,78 @@
     }
         return YES;
 }
+/**旋转 end**/
 
-- (BOOL)checkmove
+- (void)moveRight
 {
+    [self moveX:1 Y:0];
+}
+- (BOOL)checkRight:(HBMap *)map
+{
+    BOOL f1 = [self checkMove:map pos:self.shape.inMap1 moveX:1 Y:0];
+    BOOL f2 = [self checkMove:map pos:self.shape.inMap2 moveX:1 Y:0];
+    BOOL f3 = [self checkMove:map pos:self.shape.inMap3 moveX:1 Y:0];
+    BOOL f4 = [self checkMove:map pos:self.shape.inMap4 moveX:1 Y:0];
+    if (f1&&f2&&f3&&f4)
+    {
+        return YES;
+    }
+    return NO;
+}
+
+- (BOOL)checkMove:(HBMap *)map pos:(position)p moveX:(int)setX Y:(int)setY
+{
+    int row = p.y + setY;
+    int col = p.x + setX;
     
+    if (col<0)
+    {
+        return NO;
+    }
+    if (col>15)
+    {
+        return NO;
+    }
+    if (row>21)
+    {
+        return NO;
+    }
+    NSNumber *flag = map.rowArray[row][col];
+    if (flag.intValue==1)
+    {
+        return NO;
+    }
     return YES;
+}
+- (void)moveLeft
+{
+    [self moveX:-1 Y:0];
+}
+- (BOOL)checkLeft:(HBMap *)map
+{
+    BOOL f1 = [self checkMove:map pos:self.shape.inMap1 moveX:-1 Y:0];
+    BOOL f2 = [self checkMove:map pos:self.shape.inMap2 moveX:-1 Y:0];
+    BOOL f3 = [self checkMove:map pos:self.shape.inMap3 moveX:-1 Y:0];
+    BOOL f4 = [self checkMove:map pos:self.shape.inMap4 moveX:-1 Y:0];
+    if (f1&&f2&&f3&&f4)
+    {
+        return YES;
+    }
+    return NO;
+}
+-(void)moveX:(int)setX Y:(int)setY
+{
+    position map1 = {self.shape.inMap1.x+setX,self.shape.inMap1.y+setY};
+    self.shape.inMap1 = map1;
+    position map2 = {self.shape.inMap2.x+setX,self.shape.inMap2.y+setY};
+    self.shape.inMap2 = map2;
+    position map3 = {self.shape.inMap3.x+setX,self.shape.inMap3.y+setY};
+    self.shape.inMap3 = map3;
+    position map4 = {self.shape.inMap4.x+setX,self.shape.inMap4.y+setY};
+    self.shape.inMap4 = map4;
+    position centerP = {self.shape.centerInMap.x+setX,self.shape.centerInMap.y+setY};
+    self.shape.centerInMap = centerP;
+    [self updateFrame];
 }
 
 @end
