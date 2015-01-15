@@ -7,21 +7,31 @@
 //
 
 #import "ViewController.h"
-
+#import "OneShape.h"
 @interface ViewController ()
-
+@property(nonatomic,strong) OneShape *one;
 @end
 
 @implementation ViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    _one = [[OneShape alloc] init];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+- (void)testChangeShape
+{
+    [_one changeShape];
+    
+}
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self testChangeShape];
+    
+    NSLog(@"----%@",_one);
 }
 
 @end

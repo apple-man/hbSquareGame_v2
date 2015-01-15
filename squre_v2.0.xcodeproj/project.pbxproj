@@ -15,6 +15,8 @@
 		A866F9481A658649007FBA06 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A866F9461A658649007FBA06 /* LaunchScreen.xib */; };
 		A866F9541A658649007FBA06 /* squre_v2_0Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = A866F9531A658649007FBA06 /* squre_v2_0Tests.m */; };
 		A866F95E1A65869D007FBA06 /* 实现原理.md in Sources */ = {isa = PBXBuildFile; fileRef = A866F95D1A65869D007FBA06 /* 实现原理.md */; };
+		A866F9621A658FEA007FBA06 /* HBBase.m in Sources */ = {isa = PBXBuildFile; fileRef = A866F9611A658FEA007FBA06 /* HBBase.m */; };
+		A8A1E2131A678C1E00D84F71 /* OneShape.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A1E2121A678C1E00D84F71 /* OneShape.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +44,10 @@
 		A866F9521A658649007FBA06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A866F9531A658649007FBA06 /* squre_v2_0Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = squre_v2_0Tests.m; sourceTree = "<group>"; };
 		A866F95D1A65869D007FBA06 /* 实现原理.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "实现原理.md"; sourceTree = "<group>"; };
+		A866F9601A658FEA007FBA06 /* HBBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBBase.h; sourceTree = "<group>"; };
+		A866F9611A658FEA007FBA06 /* HBBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBBase.m; sourceTree = "<group>"; };
+		A8A1E2111A678C1E00D84F71 /* OneShape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OneShape.h; sourceTree = "<group>"; };
+		A8A1E2121A678C1E00D84F71 /* OneShape.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OneShape.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +89,8 @@
 		A866F9361A658649007FBA06 /* squre_v2.0 */ = {
 			isa = PBXGroup;
 			children = (
+				A8A1E2141A6794A200D84F71 /* squareController */,
+				A866F95F1A658FC7007FBA06 /* squareModel */,
 				A866F93B1A658649007FBA06 /* AppDelegate.h */,
 				A866F93C1A658649007FBA06 /* AppDelegate.m */,
 				A866F93E1A658649007FBA06 /* ViewController.h */,
@@ -120,6 +128,24 @@
 				A866F9521A658649007FBA06 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A866F95F1A658FC7007FBA06 /* squareModel */ = {
+			isa = PBXGroup;
+			children = (
+				A866F9601A658FEA007FBA06 /* HBBase.h */,
+				A866F9611A658FEA007FBA06 /* HBBase.m */,
+				A8A1E2111A678C1E00D84F71 /* OneShape.h */,
+				A8A1E2121A678C1E00D84F71 /* OneShape.m */,
+			);
+			name = squareModel;
+			sourceTree = "<group>";
+		};
+		A8A1E2141A6794A200D84F71 /* squareController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = squareController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -224,8 +250,10 @@
 			files = (
 				A866F9401A658649007FBA06 /* ViewController.m in Sources */,
 				A866F95E1A65869D007FBA06 /* 实现原理.md in Sources */,
+				A8A1E2131A678C1E00D84F71 /* OneShape.m in Sources */,
 				A866F93D1A658649007FBA06 /* AppDelegate.m in Sources */,
 				A866F93A1A658649007FBA06 /* main.m in Sources */,
+				A866F9621A658FEA007FBA06 /* HBBase.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,6 +444,7 @@
 				A866F9591A658649007FBA06 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A866F95A1A658649007FBA06 /* Build configuration list for PBXNativeTarget "squre_v2.0Tests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +453,7 @@
 				A866F95C1A658649007FBA06 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
