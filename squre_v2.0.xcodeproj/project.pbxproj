@@ -20,6 +20,12 @@
 		A8A1E2171A67983C00D84F71 /* HBLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A1E2161A67983C00D84F71 /* HBLayer.m */; };
 		A8A1E21A1A6799B700D84F71 /* HBMap.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A1E2191A6799B700D84F71 /* HBMap.m */; };
 		A8A1E21D1A679DC500D84F71 /* HBShapeControl.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A1E21C1A679DC500D84F71 /* HBShapeControl.m */; };
+		A8A1E2201A67E90500D84F71 /* TwoShape.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A1E21F1A67E90500D84F71 /* TwoShape.m */; };
+		A8A1E2231A67E91000D84F71 /* ThreeShape.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A1E2221A67E91000D84F71 /* ThreeShape.m */; };
+		A8A1E2261A67E91E00D84F71 /* FourShape.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A1E2251A67E91E00D84F71 /* FourShape.m */; };
+		A8A1E2291A67E92900D84F71 /* FiveShape.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A1E2281A67E92900D84F71 /* FiveShape.m */; };
+		A8A1E22C1A67E93600D84F71 /* SixShape.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A1E22B1A67E93600D84F71 /* SixShape.m */; };
+		A8A1E22F1A67E94300D84F71 /* SevenShape.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A1E22E1A67E94300D84F71 /* SevenShape.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +63,18 @@
 		A8A1E2191A6799B700D84F71 /* HBMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBMap.m; sourceTree = "<group>"; };
 		A8A1E21B1A679DC500D84F71 /* HBShapeControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBShapeControl.h; sourceTree = "<group>"; };
 		A8A1E21C1A679DC500D84F71 /* HBShapeControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBShapeControl.m; sourceTree = "<group>"; };
+		A8A1E21E1A67E90500D84F71 /* TwoShape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwoShape.h; sourceTree = "<group>"; };
+		A8A1E21F1A67E90500D84F71 /* TwoShape.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwoShape.m; sourceTree = "<group>"; };
+		A8A1E2211A67E91000D84F71 /* ThreeShape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThreeShape.h; sourceTree = "<group>"; };
+		A8A1E2221A67E91000D84F71 /* ThreeShape.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThreeShape.m; sourceTree = "<group>"; };
+		A8A1E2241A67E91E00D84F71 /* FourShape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FourShape.h; sourceTree = "<group>"; };
+		A8A1E2251A67E91E00D84F71 /* FourShape.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FourShape.m; sourceTree = "<group>"; };
+		A8A1E2271A67E92900D84F71 /* FiveShape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FiveShape.h; sourceTree = "<group>"; };
+		A8A1E2281A67E92900D84F71 /* FiveShape.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FiveShape.m; sourceTree = "<group>"; };
+		A8A1E22A1A67E93600D84F71 /* SixShape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixShape.h; sourceTree = "<group>"; };
+		A8A1E22B1A67E93600D84F71 /* SixShape.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixShape.m; sourceTree = "<group>"; };
+		A8A1E22D1A67E94300D84F71 /* SevenShape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SevenShape.h; sourceTree = "<group>"; };
+		A8A1E22E1A67E94300D84F71 /* SevenShape.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SevenShape.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +164,18 @@
 				A866F9611A658FEA007FBA06 /* HBBase.m */,
 				A8A1E2111A678C1E00D84F71 /* OneShape.h */,
 				A8A1E2121A678C1E00D84F71 /* OneShape.m */,
+				A8A1E21E1A67E90500D84F71 /* TwoShape.h */,
+				A8A1E21F1A67E90500D84F71 /* TwoShape.m */,
+				A8A1E2211A67E91000D84F71 /* ThreeShape.h */,
+				A8A1E2221A67E91000D84F71 /* ThreeShape.m */,
+				A8A1E2241A67E91E00D84F71 /* FourShape.h */,
+				A8A1E2251A67E91E00D84F71 /* FourShape.m */,
+				A8A1E2271A67E92900D84F71 /* FiveShape.h */,
+				A8A1E2281A67E92900D84F71 /* FiveShape.m */,
+				A8A1E22A1A67E93600D84F71 /* SixShape.h */,
+				A8A1E22B1A67E93600D84F71 /* SixShape.m */,
+				A8A1E22D1A67E94300D84F71 /* SevenShape.h */,
+				A8A1E22E1A67E94300D84F71 /* SevenShape.m */,
 			);
 			name = squareModel;
 			sourceTree = "<group>";
@@ -265,12 +295,18 @@
 			files = (
 				A866F9401A658649007FBA06 /* ViewController.m in Sources */,
 				A866F95E1A65869D007FBA06 /* 实现原理.md in Sources */,
+				A8A1E2201A67E90500D84F71 /* TwoShape.m in Sources */,
 				A8A1E21A1A6799B700D84F71 /* HBMap.m in Sources */,
+				A8A1E2231A67E91000D84F71 /* ThreeShape.m in Sources */,
 				A8A1E2131A678C1E00D84F71 /* OneShape.m in Sources */,
 				A866F93D1A658649007FBA06 /* AppDelegate.m in Sources */,
+				A8A1E2261A67E91E00D84F71 /* FourShape.m in Sources */,
 				A866F93A1A658649007FBA06 /* main.m in Sources */,
 				A866F9621A658FEA007FBA06 /* HBBase.m in Sources */,
+				A8A1E22C1A67E93600D84F71 /* SixShape.m in Sources */,
 				A8A1E21D1A679DC500D84F71 /* HBShapeControl.m in Sources */,
+				A8A1E2291A67E92900D84F71 /* FiveShape.m in Sources */,
+				A8A1E22F1A67E94300D84F71 /* SevenShape.m in Sources */,
 				A8A1E2171A67983C00D84F71 /* HBLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

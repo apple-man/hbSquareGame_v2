@@ -33,10 +33,11 @@
 {
     if (self = [self init])
     {
-        if ([shape isMemberOfClass:[OneShape class]])
-        {
-            [self countLocationInMap:shape currentRow:row currentCol:col];
-        }
+//        if ([shape isMemberOfClass:[OneShape class]])
+//        {
+//            [self countLocationInMap:shape currentRow:row currentCol:col];
+//        }
+        [self countLocationInMap:shape currentRow:row currentCol:col];
         
         self.layerArray = [[NSMutableArray alloc] initWithCapacity:blockNum];
         
@@ -234,7 +235,7 @@
     {
         return NO;
     }
-    if (col>15)
+    if (col>14)
     {
         return NO;
     }

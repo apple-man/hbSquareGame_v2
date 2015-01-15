@@ -8,6 +8,12 @@
 
 #import "ViewController.h"
 #import "OneShape.h"
+#import "TwoShape.h"
+#import "ThreeShape.h"
+#import "FourShape.h"
+#import "FiveShape.h"
+#import "SixShape.h"
+#import "SevenShape.h"
 #import "HBShapeControl.h"
 #import "HBLayer.h"
 #import "HBMap.h"
@@ -20,7 +26,7 @@
 
 @property(nonatomic,strong)HBShapeControl *shapeC;
 
-@property(nonatomic,strong)OneShape *s1;
+@property(nonatomic,strong)HBBase *s1;
 
 @end
 
@@ -46,7 +52,7 @@
     int row = 0;
     int col = 5;
     
-    _s1 = [[OneShape alloc] init];
+    _s1 = [[FourShape alloc] init];
     
     _shapeC = [[HBShapeControl alloc] initWith:_s1 currentRow:row currentCol:col];
     
@@ -59,7 +65,7 @@
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         while (YES)
         {
-            [NSThread sleepForTimeInterval:0.7];
+            [NSThread sleepForTimeInterval:0.4];
             if ([_shapeC checkMoveDown:self.mainMap]) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [_shapeC moveDown];
