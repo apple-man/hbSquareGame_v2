@@ -1,5 +1,5 @@
 //
-//  OneShape.h
+//  HBMap.h
 //  squre_v2.0
 //
 //  Created by hanbing on 15/1/15.
@@ -8,11 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-#import "HBBase.h"
-
-//@class HBBase.h;
-
-@interface OneShape : HBBase
-
+@interface HBMap : NSObject
+/**
+    NSNumber 1 有，0 没有
+ */
+@property(nonatomic,strong)NSMutableArray *rowArray;
 
 @end

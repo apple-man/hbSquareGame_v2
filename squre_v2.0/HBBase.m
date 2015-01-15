@@ -16,6 +16,17 @@
 
 @implementation HBBase
 
+- (instancetype)init
+{
+    if (self = [super init])
+    {
+        [self four2One];
+        
+        self.type = HBBaseTypeOne;
+    }
+    return self;
+}
+
 - (void)changeShape
 {
     if (self.type == HBBaseTypeOne)

@@ -21,6 +21,7 @@ typedef enum
     HBBaseTypeThree,
     HBBaseTypeFour
 }HBBaseType;
+
 @interface HBBase : NSObject
 
 @property(nonatomic,assign) HBBaseType type;
@@ -29,6 +30,13 @@ typedef enum
 @property(nonatomic,assign)position p3;
 @property(nonatomic,assign)position p4;
 
+/**
+ 转化后在大坐标系中的位置
+ */
+@property(nonatomic,assign)position inMap1;
+@property(nonatomic,assign)position inMap2;
+@property(nonatomic,assign)position inMap3;
+@property(nonatomic,assign)position inMap4;
 
 - (void)changeShape;
 

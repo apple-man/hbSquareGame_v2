@@ -11,18 +11,6 @@
 #import "HBBase.h"
 @implementation OneShape
 
-
-- (instancetype)init
-{
-    if (self = [super init])
-    {
-        [self four2One];
-        
-        self.type = HBBaseTypeOne;
-    }
-    return self;
-}
-
 - (void)one2Two
 {
     position p1 = {0,1};
