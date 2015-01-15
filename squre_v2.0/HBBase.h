@@ -25,11 +25,13 @@ typedef enum
 @interface HBBase : NSObject
 
 @property(nonatomic,assign) HBBaseType type;
+
 @property(nonatomic,assign)position p1;
 @property(nonatomic,assign)position p2;
 @property(nonatomic,assign)position p3;
 @property(nonatomic,assign)position p4;
 
+@property(nonatomic,assign)position centerP;
 /**
  转化后在大坐标系中的位置
  */
@@ -38,6 +40,7 @@ typedef enum
 @property(nonatomic,assign)position inMap3;
 @property(nonatomic,assign)position inMap4;
 
+@property(nonatomic,assign)position centerInMap;
 - (void)changeShape;
 
 /*************子类必须实现的方法 开始*************/
@@ -50,5 +53,7 @@ typedef enum
 - (void)four2One;
 /*************子类必须实现的方法 结束*************/
 
-- (void)setPosition:(position)p1 pos2:(position)p2 pos3:(position)p3 pos4:(position)p4;
+- (void)setPosition:(position)p1 pos2:(position)p2 pos3:(position)p3 pos4:(position)p4 centerP:(position)cp;
+
+- (void)countLocationOfCurrentRow:(int)row currentCol:(int)col;
 @end

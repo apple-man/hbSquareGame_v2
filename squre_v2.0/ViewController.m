@@ -44,7 +44,7 @@
 - (void)setBegin
 {
     int row = 0;
-    int col = -1;
+    int col = 5;
     
     _s1 = [[OneShape alloc] init];
     
@@ -72,6 +72,13 @@
             }
         }
     });
+}
+- (IBAction)rotation
+{
+    if ([_shapeC checkRotation:self.mainMap])
+    {
+        [_shapeC switchShape:self.mainMap];
+    }
 }
 
 

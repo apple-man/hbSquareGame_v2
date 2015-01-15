@@ -12,6 +12,12 @@
 #import "HBLayer.h"
 #import "HBMap.h"
 #define blockNum 4
+
+@interface HBShapeControl()
+
+@property(nonatomic,copy)HBBase *rotationBase;
+
+@end
 @implementation HBShapeControl
 
 - (instancetype)init
@@ -29,14 +35,7 @@
     {
         if ([shape isMemberOfClass:[OneShape class]])
         {
-            position map1 = {col+shape.p1.x,row+shape.p1.y};
-            shape.inMap1 = map1;
-            position map2 = {col+shape.p2.x,row+shape.p2.y};
-            shape.inMap2 = map2;
-            position map3 = {col+shape.p3.x,row+shape.p3.y};
-            shape.inMap3 = map3;
-            position map4 = {col+shape.p4.x,row+shape.p4.y};
-            shape.inMap4 = map4;
+            [self countLocationInMap:shape currentRow:row currentCol:col];
         }
         
         self.layerArray = [[NSMutableArray alloc] initWithCapacity:blockNum];
@@ -64,10 +63,18 @@
     
     return self;
 }
-
-- (void)locationInMap:(HBBase *)shape currentRow:(int)row currentCol:(int)col
+- (void)countLocationInMap:(HBBase *)shape currentRow:(int)row currentCol:(int)col
 {
-
+    position map1 = {col+shape.p1.x,row+shape.p1.y};
+    shape.inMap1 = map1;
+    position map2 = {col+shape.p2.x,row+shape.p2.y};
+    shape.inMap2 = map2;
+    position map3 = {col+shape.p3.x,row+shape.p3.y};
+    shape.inMap3 = map3;
+    position map4 = {col+shape.p4.x,row+shape.p4.y};
+    shape.inMap4 = map4;
+    position centerP = {col+shape.centerP.x,row+shape.centerP.y};
+    shape.centerInMap = centerP;
 }
 
 
@@ -106,7 +113,8 @@
     self.shape.inMap3 = map3;
     position map4 = {self.shape.inMap4.x,self.shape.inMap4.y+1};
     self.shape.inMap4 = map4;
-    
+    position centerP = {self.shape.centerInMap.x,self.shape.centerInMap.y+1};
+    self.shape.centerInMap = centerP;
     [self updateFrame];
 }
 
@@ -155,10 +163,70 @@
 }
 /**向下移动 stop**/
 
-- (void)switchShape
+/**要重新计算inMap的坐标 根据原来的坐标值计算出来**/
+- (void)switchShape:(HBMap *)map
 {
-    //检查条件
     [self.shape changeShape];
+    [self updateFrame];
+}
+- (BOOL)checkRotation:(HBMap *)map
+{
+    //根据rotatioinBase检查条件，如果不对的话不影响原来的值
+    _rotationBase = self.shape;
+    BOOL f1 = [self checkSwitch:map pos:_rotationBase.inMap1 mapIndex:1];
+    BOOL f2 = [self checkSwitch:map pos:_rotationBase.inMap2 mapIndex:2];
+    BOOL f3 = [self checkSwitch:map pos:_rotationBase.inMap3 mapIndex:3];
+    BOOL f4 = [self checkSwitch:map pos:_rotationBase.inMap4 mapIndex:4];
+    if (f1&&f2&&f3&&f4)
+    {
+        return YES;
+    }
+    return NO;
+}
+- (BOOL)checkSwitch:(HBMap *)map pos:(position)pInMap mapIndex:(int)index
+{
+    
+    int col = pInMap.x;
+    int row = pInMap.y;
+    
+    [_rotationBase changeShape];
+    
+    //再检查现在的值
+    if (index==1)
+    {
+        col = _rotationBase.inMap1.x;
+        row = _rotationBase.inMap1.y;
+    }else if(index==2)
+    {
+        col = _rotationBase.inMap2.x;
+        row = _rotationBase.inMap2.y;
+    }else if(index==3)
+    {
+        col = _rotationBase.inMap3.x;
+        row = _rotationBase.inMap3.y;
+    }
+    else
+    {
+        col = _rotationBase.inMap4.x;
+        row = _rotationBase.inMap4.y;
+    }
+    
+    if (col<0||col>15)
+    {
+        return NO;
+    }
+    if (row>21)
+    {
+        return NO;
+    }
+    
+    NSNumber *flag = map.rowArray[row][col];
+    
+    if (flag.intValue==1)
+    {
+        return NO;
+    }
+        return YES;
 }
 
 - (BOOL)checkmove

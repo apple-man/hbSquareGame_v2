@@ -18,7 +18,9 @@
     position p3 = {2,1};
     position p4 = {0,2};
     
-    [self setPosition:p1 pos2:p2 pos3:p3 pos4:p4];
+    position centerP = {1,1};
+    
+    [self setPosition:p1 pos2:p2 pos3:p3 pos4:p4 centerP:centerP];
 }
 
 - (void)two2Three
@@ -28,7 +30,9 @@
     position p3 = {1,1};
     position p4 = {1,2};
     
-    [self setPosition:p1 pos2:p2 pos3:p3 pos4:p4];
+    position centerP = {1,1};
+    
+    [self setPosition:p1 pos2:p2 pos3:p3 pos4:p4 centerP:centerP];
 }
 
 - (void)three2Four
@@ -38,7 +42,9 @@
     position p3 = {1,1};
     position p4 = {2,1};
     
-    [self setPosition:p1 pos2:p2 pos3:p3 pos4:p4];
+    position centerP = {1,1};
+    
+    [self setPosition:p1 pos2:p2 pos3:p3 pos4:p4 centerP:centerP];
     
 }
 
@@ -49,6 +55,8 @@
     position p3 = {1,2};
     position p4 = {2,2};
     
-    [self setPosition:p1 pos2:p2 pos3:p3 pos4:p4];
+    position centerP = {1,1};
+    
+    [self setPosition:p1 pos2:p2 pos3:p3 pos4:p4 centerP:centerP];
 }
 @end
