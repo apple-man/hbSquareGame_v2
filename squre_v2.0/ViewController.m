@@ -1,4 +1,4 @@
-//
+	//
 //  ViewController.m
 //  squre_v2.0
 //
@@ -29,7 +29,7 @@ typedef enum
     shapeTypeSeven
 }shapeType;
 
-@interface ViewController ()
+@interface ViewController ()<HBShapeContorlDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *mainView;
 
@@ -83,6 +83,8 @@ typedef enum
                 int col = arc4random_uniform(11);
                 
                 _shapeC = [[HBShapeControl alloc] initWith:base currentRow:row currentCol:col];
+                
+                _shapeC.delegate = self;
                 
                 for (int i=0; i<_shapeC.layerArray.count; i++)
                 {
@@ -171,7 +173,7 @@ typedef enum
 {
     HBBase *temp;
     int type = arc4random_uniform(7);
-    
+//    type = 2;
     if (type==shapeTypeOne)
     {
         temp = [[OneShape alloc] init];
@@ -190,5 +192,64 @@ typedef enum
     }
     return temp;
 }
-
+- (void)shapeContorlDeleteFullRow:(int)row
+{
+    //删除这一行的数据 重新置0，并移除layer
+    NSMutableArray *temp = self.mainMap.rowArray[row];
+    CGFloat locY = row*20;
+    for (int i=0; i<temp.count; i++)
+    {
+        for (int j=0;j<self.mainView.layer.sublayers.count; j++)
+        {
+            CALayer *ly = self.mainView.layer.sublayers[j];
+            if (ly.frame.origin.y == locY)
+            {
+                [ly removeFromSuperlayer];
+            }
+        }
+    }
+    
+    /**
+     问题，消除一行后下移不了，sublayers属性是copy
+     */
+    NSMutableArray *tempLayer = [NSMutableArray array];
+    for (int i=0; i<self.mainView.layer.sublayers.count; i++)
+    {
+        HBLayer *ly = self.mainView.layer.sublayers[i];
+        //在他上方的方块才往下移动一格
+        if (ly.frame.origin.y<locY)
+        {
+            CGRect tempF = CGRectMake(ly.frame.origin.x,ly.frame.origin.y+20,20,20);
+            ly.frame = tempF;
+            [tempLayer addObject:ly];
+            [ly removeFromSuperlayer];
+        }
+    }
+    NSLog(@"tempLayer%lu------------rmove after:%lu",tempLayer.count,self.mainView.layer.sublayers.count);
+    
+    for (int i=0; i<tempLayer.count; i++)
+    {
+        HBLayer *ly = tempLayer[i];
+        
+        [self.mainView.layer addSublayer:ly];
+    }
+    NSLog(@"add after:%lu",self.mainView.layer.sublayers.count);
+//    for (HBLayer *ly in self.mainView.layer.sublayers)
+//    {
+//        //在他上方的方块才往下移动一格
+//        if (ly.frame.origin.y<locY)
+//        {
+//            CGRect tempF = CGRectMake(ly.frame.origin.x,ly.frame.origin.y+20,20,20);
+//            ly.frame = tempF;
+//        }
+//    }
+    for (int i=0; i<temp.count; i++)
+    {
+        temp[i] = @0;
+    }
+}
+- (void)dealloc
+{
+    NSLog(@"viewController我去了！");
+}
 @end

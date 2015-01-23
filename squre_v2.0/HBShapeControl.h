@@ -14,7 +14,15 @@
 @class HBBase;
 @class HBMap;
 
+@protocol HBShapeContorlDelegate <NSObject>
+
+- (void)shapeContorlDeleteFullRow:(int)row;
+
+@end
+
 @interface HBShapeControl : NSObject
+
+@property(nonatomic,weak)id<HBShapeContorlDelegate> delegate;
 
 @property(nonatomic,strong)HBBase *shape;
 

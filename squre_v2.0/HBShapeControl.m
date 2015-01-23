@@ -139,6 +139,25 @@
     int col = p.x;
     map.rowArray[row][col] = @1;
     
+    //检查一行是否已经满了＝＝＝ 用代理的方法
+    BOOL flag = YES;
+    for (NSNumber *num in map.rowArray[row])
+    {
+        if (num.intValue == 0)
+        {
+            flag = NO;
+            break;
+        }
+    }
+    if (flag)
+    {
+        if ([self.delegate respondsToSelector:@selector(shapeContorlDeleteFullRow:)])
+        {
+            [self.delegate shapeContorlDeleteFullRow:row];
+        }
+    }
+    //也判断游戏是否结束=== 也用代理停止游戏
+    
 }
 /**向下移动 end**/
 
