@@ -69,6 +69,12 @@
                                             <action selector="suspendGame" destination="m2H-SP-kr0" eventType="touchUpInside" id="f0l-JX-5zq"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="分数：0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MfP-1k-2E5">
+                                        <rect key="frame" x="84" y="148" width="200" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.93005845239999996" green="1" blue="0.75227745660000001" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
@@ -82,6 +88,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="mainView" destination="6jf-2y-uOu" id="W0L-nT-6Uz"/>
+                        <outlet property="score" destination="MfP-1k-2E5" id="Gd9-Rq-19h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XdV-Sq-zJy" sceneMemberID="firstResponder"/>

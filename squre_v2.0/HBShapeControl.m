@@ -153,6 +153,7 @@
     {
         if ([self.delegate respondsToSelector:@selector(shapeContorlDeleteFullRow:)])
         {
+            NSLog(@"**time**");
             dispatch_sync(dispatch_get_main_queue(), ^{
                 [self.delegate shapeContorlDeleteFullRow:row];
             });

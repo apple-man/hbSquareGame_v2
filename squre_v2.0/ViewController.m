@@ -41,6 +41,8 @@ typedef enum
 
 @property(nonatomic,copy) HBLayer *layTemp;
 
+@property (weak, nonatomic) IBOutlet UILabel *score;
+@property(nonatomic,assign) int scoreN;
 @end
 
 @implementation ViewController
@@ -68,6 +70,7 @@ typedef enum
 }
 - (void)setBegin
 {
+    _scoreN = 0;
     [self.optQueue addOperationWithBlock:^{
         @synchronized(self)
         {
@@ -244,6 +247,9 @@ typedef enum
         [self setMapValue:@1 layer:ly];
         [self.mainView.layer addSublayer:ly];
     }
+    _scoreN += 100;
+    
+    _score.text = [NSString stringWithFormat:@"分数:%d",_scoreN];
 }
 /**
  根据layer设置总坐标系的值
