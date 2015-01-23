@@ -199,6 +199,7 @@ typedef enum
     NSArray *sonLayers = self.mainView.layer.sublayers;
     //删除这一行的数据 重新置0，并移除layer
     NSMutableArray *temp = self.mainMap.rowArray[row];
+    
     CGFloat locY = row*20;
     for (int i=0; i<temp.count; i++)
     {
@@ -215,7 +216,6 @@ typedef enum
     {
         temp[i] = @0;
     }
-    NSLog(@"%@",self.mainMap);
     /**
      问题，消除一行后下移不了，sublayers属性是copy
      */
@@ -227,6 +227,7 @@ typedef enum
         if (ly.frame.origin.y<locY)
         {
             _layTemp = ly;
+            [self setMapValue:@0 layer:ly];
             CGFloat tempY = ly.frame.origin.y + 20;
             CGRect tempF = CGRectMake(ly.frame.origin.x,tempY,20,20);
             _layTemp.frame = tempF;
@@ -240,9 +241,18 @@ typedef enum
     for (int i=0; i<tempLayer.count; i++)
     {
         HBLayer *ly = tempLayer[i];
-        
+        [self setMapValue:@1 layer:ly];
         [self.mainView.layer addSublayer:ly];
     }
+}
+/**
+ 根据layer设置总坐标系的值
+ */
+- (void)setMapValue:(NSNumber *)number layer:(HBLayer *)ly
+{
+    int row = ly.frame.origin.y/20;
+    int col = ly.frame.origin.x/20;
+    self.mainMap.rowArray[row][col] = number;
 }
 - (void)dealloc
 {
