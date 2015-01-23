@@ -79,8 +79,8 @@ typedef enum
                     return;
                 }
                 _shapeC = nil;
-//                HBBase *base = [self randomProduceShape];
-                HBBase *base = [[ThreeShape alloc] init];
+                HBBase *base = [self randomProduceShape];
+//                HBBase *base = [[ThreeShape alloc] init];//测试数据
                 int row = 0;
                 int col = arc4random_uniform(11);
                 
