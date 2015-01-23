@@ -39,6 +39,8 @@ typedef enum
 
 @property(nonatomic,strong)NSOperationQueue *optQueue;
 
+@property(nonatomic,copy) HBLayer *layTemp;
+
 @end
 
 @implementation ViewController
@@ -69,16 +71,16 @@ typedef enum
     [self.optQueue addOperationWithBlock:^{
         @synchronized(self)
         {
+            NSLog(@"----start game----");
             while (YES)
             {
-                NSLog(@"test");
                 if (self.optQueue.isSuspended)
                 {
                     return;
                 }
                 _shapeC = nil;
-                NSLog(@"----start game----");
-                HBBase *base = [self randomProduceShape];
+//                HBBase *base = [self randomProduceShape];
+                HBBase *base = [[ThreeShape alloc] init];
                 int row = 0;
                 int col = arc4random_uniform(11);
                 
@@ -194,58 +196,52 @@ typedef enum
 }
 - (void)shapeContorlDeleteFullRow:(int)row
 {
+    NSArray *sonLayers = self.mainView.layer.sublayers;
     //删除这一行的数据 重新置0，并移除layer
     NSMutableArray *temp = self.mainMap.rowArray[row];
     CGFloat locY = row*20;
     for (int i=0; i<temp.count; i++)
     {
-        for (int j=0;j<self.mainView.layer.sublayers.count; j++)
+        for (int j=0;j<sonLayers.count; j++)
         {
-            CALayer *ly = self.mainView.layer.sublayers[j];
+            CALayer *ly = sonLayers[j];
             if (ly.frame.origin.y == locY)
             {
                 [ly removeFromSuperlayer];
             }
         }
     }
-    
+    for (int i=0; i<temp.count; i++)
+    {
+        temp[i] = @0;
+    }
+    NSLog(@"%@",self.mainMap);
     /**
      问题，消除一行后下移不了，sublayers属性是copy
      */
     NSMutableArray *tempLayer = [NSMutableArray array];
-    for (int i=0; i<self.mainView.layer.sublayers.count; i++)
+    for (int i=(int)sonLayers.count-1; i>=0; i--)
     {
-        HBLayer *ly = self.mainView.layer.sublayers[i];
+        HBLayer *ly = sonLayers[i];
         //在他上方的方块才往下移动一格
         if (ly.frame.origin.y<locY)
         {
-            CGRect tempF = CGRectMake(ly.frame.origin.x,ly.frame.origin.y+20,20,20);
-            ly.frame = tempF;
-            [tempLayer addObject:ly];
+            _layTemp = ly;
+            CGFloat tempY = ly.frame.origin.y + 20;
+            CGRect tempF = CGRectMake(ly.frame.origin.x,tempY,20,20);
+            _layTemp.frame = tempF;
+            
             [ly removeFromSuperlayer];
+            
+            [tempLayer addObject:_layTemp];
         }
     }
-    NSLog(@"tempLayer%lu------------rmove after:%lu",tempLayer.count,self.mainView.layer.sublayers.count);
     
     for (int i=0; i<tempLayer.count; i++)
     {
         HBLayer *ly = tempLayer[i];
         
         [self.mainView.layer addSublayer:ly];
-    }
-    NSLog(@"add after:%lu",self.mainView.layer.sublayers.count);
-//    for (HBLayer *ly in self.mainView.layer.sublayers)
-//    {
-//        //在他上方的方块才往下移动一格
-//        if (ly.frame.origin.y<locY)
-//        {
-//            CGRect tempF = CGRectMake(ly.frame.origin.x,ly.frame.origin.y+20,20,20);
-//            ly.frame = tempF;
-//        }
-//    }
-    for (int i=0; i<temp.count; i++)
-    {
-        temp[i] = @0;
     }
 }
 - (void)dealloc

@@ -153,7 +153,9 @@
     {
         if ([self.delegate respondsToSelector:@selector(shapeContorlDeleteFullRow:)])
         {
-            [self.delegate shapeContorlDeleteFullRow:row];
+            dispatch_sync(dispatch_get_main_queue(), ^{
+                [self.delegate shapeContorlDeleteFullRow:row];
+            });
         }
     }
     //也判断游戏是否结束=== 也用代理停止游戏
