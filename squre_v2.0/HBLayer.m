@@ -7,7 +7,7 @@
 //
 
 #import "HBLayer.h"
-
+#import "UIColor+Random.h"
 
 
 @implementation HBLayer
@@ -16,14 +16,11 @@
 {
     if (self = [super init])
     {
-//        CGRect bounds = CGRectMake(0,0,HBWidth,HBHeight);
-//        self.bounds = bounds;
-//        
         self.backgroundColor = color.CGColor;
+        self.borderWidth = 1.5;
+        self.borderColor = [UIColor randomColor].CGColor;
     }
     return self;
 }
-
-
 
 @end
