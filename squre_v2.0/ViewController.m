@@ -82,8 +82,9 @@ typedef enum
                     return;
                 }
                 _shapeC = nil;
+                
                 HBBase *base = [self randomProduceShape];
-//                HBBase *base = [[ThreeShape alloc] init];//测试数据
+                
                 int row = 0;
                 int col = arc4random_uniform(11);
                 
@@ -105,8 +106,6 @@ typedef enum
                         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                             [_shapeC moveDown];
                         }];
-//                        HBLayer *ly = _shapeC.layerArray[0];
-//                        NSLog(@"down----%@---%p---%p",NSStringFromCGRect(ly.frame),_shapeC,_shapeC.shape);
                     }else{
                         [_shapeC StopInMap:self.mainMap];
                         break;
@@ -116,23 +115,6 @@ typedef enum
         }
         
     }];
-    
-//    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-//        while (YES)
-//        {
-//            [NSThread sleepForTimeInterval:0.4];
-//            if ([_shapeC checkMoveDown:self.mainMap]) {
-//                dispatch_async(dispatch_get_main_queue(), ^{
-//                    [_shapeC moveDown];
-//                });
-//                HBLayer *ly = _shapeC.layerArray[0];
-//                NSLog(@"down----%@",NSStringFromCGRect(ly.frame));
-//            }else{
-//                [_shapeC StopInMap:self.mainMap];
-//                return;
-//            }
-//        }
-//    });
 }
 - (IBAction)rotation
 {
@@ -158,15 +140,12 @@ typedef enum
 }
 - (IBAction)startGame
 {
-    NSLog(@"start--btn---%lu",self.optQueue.operationCount);
     self.optQueue.suspended = YES;
     [self setBegin];
 }
 
 - (IBAction)suspendGame
 {
-    NSLog(@"暂停---%d",self.optQueue.isSuspended);
-    
     self.optQueue.suspended = YES;
     
 }
